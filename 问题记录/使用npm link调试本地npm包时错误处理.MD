@@ -47,9 +47,10 @@
 
 ```js
 //vue.config.js
-Object.keys(packageJson.dependencies).forEach(lib=>{
-  devAlias[lib]=path.resolve(__dirname,'./node_modules',lib)
-})
+const devAlias=Object.keys(packageJson.dependencies).reduce((result,lib)=>{
+  result[lib]=path.resolve(__dirname,'./node_modules',lib)
+  return result
+},{})
 module.exports={
     configureWebpack: {
     resolve: {
