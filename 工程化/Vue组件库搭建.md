@@ -2,7 +2,7 @@
 
 
 
-​	参照项目https://github.com/sm00thCr1m1n4l/vue-components-demo对一些关键点做些说明
+​	参照项目 https://github.com/sm00thCr1m1n4l/vue-components-demo 对一些关键点做些说明
 
 1. 使用vue-cli新建一个项目
 
@@ -29,9 +29,7 @@ module.exports = {
 
 ```
 
-
-
-4.新建 **webpack.components.js**作为打包生产环境的webpack配置
+4. 新建 **webpack.components.js**作为打包生产环境的webpack配置
 
 ```javascript
 const glob = require('glob')
@@ -221,7 +219,7 @@ module.exports = {
 
 
 
-5.新建一个 **babel-plugin-import-config.js**作为调用组件库的项目的babel-plugin-import的配置
+5. 新建一个 **babel-plugin-import-config.js**作为调用组件库的项目的babel-plugin-import的配置
 
 ```js
 /**
