@@ -1,8 +1,8 @@
 ---
-description: Test
+description: Blog
 ---
 
-# Initial page
+# Introduction
 
-Test
+Blog
 
