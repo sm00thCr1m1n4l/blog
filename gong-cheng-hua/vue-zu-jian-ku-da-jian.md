@@ -11,19 +11,19 @@
 2. 添加/example作为用例目录
 3. 修改 **vue.config.js** 如下
 
-```javascript
-//修改**/example/index.ts** 作为开发时的入口
-module.exports = {
-  pages:{
-    index: './example/index.ts'
-  },
-  configureWebpack: {
-    devtool: 'sourcemap'
+  ```javascript
+  //修改**/example/index.ts** 作为开发时的入口
+  module.exports = {
+    pages:{
+      index: './example/index.ts'
+    },
+    configureWebpack: {
+      devtool: 'sourcemap'
+    }
   }
-}
-```
+  ```
 
-1. 新建 **webpack.components.js**作为打包生产环境的webpack配置
+4. 新建 **webpack.components.js**作为打包生产环境的webpack配置
 
 ```javascript
 const glob = require('glob')
@@ -211,7 +211,7 @@ module.exports = {
 }
 ```
 
-1. 新建一个 **babel-plugin-import-config.js**作为调用组件库的项目的babel-plugin-import的配置
+5. 新建一个 **babel-plugin-import-config.js**作为调用组件库的项目的babel-plugin-import的配置
 
 ```javascript
 /**
@@ -255,7 +255,7 @@ module.exports = ({ style = true } = {}) => {
 }
 ```
 
-按需引用代码使用
+6.按需引用代码使用
 
 ```javascript
   module.exports = {
