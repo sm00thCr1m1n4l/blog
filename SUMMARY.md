@@ -1,7 +1,3 @@
-# Table of contents
-
-* [Initial page](README.md)
-
 ## vue
 
 * [响应式原理简单分析](vue/响应式原理简单分析.md)
