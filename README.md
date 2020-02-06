@@ -1,7 +1,3 @@
----
-description: Blog
----
-
 # Introduction
 
 Blog
