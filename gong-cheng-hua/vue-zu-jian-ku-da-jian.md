@@ -11,38 +11,38 @@
 2. 添加/example作为用例目录
 3. 修改 **vue.config.js** 如下
 
-  ```javascript
-  //修改**/example/index.ts** 作为开发时的入口
-  module.exports = {
+   ```javascript
+   //修改**/example/index.ts** 作为开发时的入口
+   module.exports = {
     pages:{
       index: './example/index.ts'
     },
     configureWebpack: {
       devtool: 'sourcemap'
     }
-  }
-  ```
+   }
+   ```
 
 4. 新建 **webpack.components.js**作为打包生产环境的webpack配置
 
-  ```javascript
-  const glob = require('glob')
-  const path = require('path')
-  const VueLoaderPlugin = require('vue-loader/lib/plugin')
-  const nodeExternals = require('webpack-node-externals')
-  const pathFormat = (dir) => dir.replace(new RegExp(`\\${path.sep}`, 'g'), '/')
-  const srcDir = pathFormat(path.resolve(__dirname, './src'))
-  const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-  const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-  let sourceFileDir = [
+   ```javascript
+   const glob = require('glob')
+   const path = require('path')
+   const VueLoaderPlugin = require('vue-loader/lib/plugin')
+   const nodeExternals = require('webpack-node-externals')
+   const pathFormat = (dir) => dir.replace(new RegExp(`\\${path.sep}`, 'g'), '/')
+   const srcDir = pathFormat(path.resolve(__dirname, './src'))
+   const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+   const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+   let sourceFileDir = [
     ...glob.sync(path.resolve(__dirname, './src/**/*.*'))
-  ].filter(i => {//遍历src下的所有文件，过滤出需要打包的部分
+   ].filter(i => {//遍历src下的所有文件，过滤出需要打包的部分
     const ext = path.extname(i)
     return ['.js', '.ts', '.tsx', '.vue', '.tsx'].includes(ext) && !(/\.d\.ts$/g.test(i))
-  })
-  const { peerDependencies, devDependencies, dependencies, name } = require('./package')
+   })
+   const { peerDependencies, devDependencies, dependencies, name } = require('./package')
 
-  const externals = [
+   const externals = [
     {},
     nodeExternals(),
     (context, request, callback) => {
@@ -57,23 +57,23 @@
       callback()
     }
     // ...componentsDir
-  ]
-  //将package.json中的依赖提取到组件库外部
-  Object.keys({ ...peerDependencies, ...devDependencies, ...dependencies }).forEach((d) => {
+   ]
+   //将package.json中的依赖提取到组件库外部
+   Object.keys({ ...peerDependencies, ...devDependencies, ...dependencies }).forEach((d) => {
     externals[0][d] = {
       commonjs: d,
       commonjs2: d,
       root: d === 'vue' ? 'Vue' : undefined
     }
-  })
-  const entry = {}
-  //生成
-  sourceFileDir.forEach(dir => {
+   })
+   const entry = {}
+   //生成
+   sourceFileDir.forEach(dir => {
     const chunkName = dir.replace(srcDir, '').replace(/^\//, '').replace(/\..*$/, '')
     entry[chunkName] = dir
-  })
+   })
 
-  module.exports = {
+   module.exports = {
     entry,
     mode: 'production',
     output: {
@@ -208,28 +208,27 @@
       }
     },
     watch: process.env.ENV === 'watch'
-  }
-  ```
+   }
+   ```
 
 5. 新建一个 **babel-plugin-import-config.js**作为调用组件库的项目的babel-plugin-import的配置
 
-  ```javascript
-
-  /**
-  * babel-plugin-import 插件配置
-  */
-  const dasherize = require('dasherize')
-  const path = require('path')
-  const fs = require('fs')
-  const pkgJSON = require('./package.json')
-  /**
-  * options
-  * {
-  *  style:boolean  是否自动导入样式代码
-  * }
-  */
-  const modulePath = path.join(process.cwd(), `./node_modules/${pkgJSON.name}`)
-  module.exports = ({ style = true } = {}) => {
+   ```javascript
+   /**
+   * babel-plugin-import 插件配置
+   */
+   const dasherize = require('dasherize')
+   const path = require('path')
+   const fs = require('fs')
+   const pkgJSON = require('./package.json')
+   /**
+   * options
+   * {
+   *  style:boolean  是否自动导入样式代码
+   * }
+   */
+   const modulePath = path.join(process.cwd(), `./node_modules/${pkgJSON.name}`)
+   module.exports = ({ style = true } = {}) => {
     console.log(this)
     return {
       libraryName: pkgJSON.name,
@@ -253,12 +252,12 @@
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 6. 按需引用代码使用
 
-  ```javascript
+   ```javascript
     module.exports = {
       ...
       plugins: [
@@ -269,4 +268,5 @@
           ]
       ],
     }
-  ```
+   ```
+
