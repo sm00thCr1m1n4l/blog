@@ -4,7 +4,7 @@
 
  macrotask =&gt; microtask queue =&gt; macrotask queue 
 
-注意：microtask queue每执行一个之后会重新去查找microtask queue的第一个并执行
+注意：microtask queue每执行一个之后会重新清空microtask queue
 
 重复 2-3
 
