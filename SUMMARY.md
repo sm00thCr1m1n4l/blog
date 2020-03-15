@@ -8,6 +8,7 @@
 * [基于Vue的虚拟列表实现](vue/ji-yu-vue-de-xu-ni-lie-biao-shi-xian.md)
 * [响应式原理简单分析](vue/xiang-ying-shi-yuan-li-jian-dan-fen-xi.md)
 * [computed实现分析](vue/computed-shi-xian-fen-xi.md)
+* [Vue组件库搭建](vue/vue-zu-jian-ku-da-jian.md)
 
 ## js
 
@@ -20,8 +21,6 @@
 * [使用npm link调试本地npm包时错误处理](wen-ti-ji-lu/shi-yong-npmlink-tiao-shi-ben-di-npm-bao-shi-cuo-wu-chu-li.md)
 
 ## 工程化
-
-* [Vue组件库搭建](gong-cheng-hua/vue-zu-jian-ku-da-jian.md)
 
 ## 其他 <a id="yang-shi"></a>
 
