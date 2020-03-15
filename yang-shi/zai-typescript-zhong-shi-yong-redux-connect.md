@@ -1,4 +1,4 @@
-# 在typescript中使用 redux connect
+# 在typescript中使用HOC来包装 redux connect
 
 ```jsx
 import * as React from 'react'

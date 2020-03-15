@@ -22,7 +22,7 @@
 
 ## 其他 <a id="yang-shi"></a>
 
-* [在typescript中使用 redux connect](yang-shi/zai-typescript-zhong-shi-yong-redux-connect.md)
+* [在typescript中使用HOC来包装 redux connect](yang-shi/zai-typescript-zhong-shi-yong-redux-connect.md)
 * [BFC](yang-shi/bfc.md)
 * [Event Loop](yang-shi/event-loop.md)
 
