@@ -2,6 +2,7 @@
 
 ```jsx
 import * as React from 'react'
+React.createElement
 import { connect } from 'react-redux'
 import { ThunkDispatch} from 'redux-thunk'
 interface IMapStateToProps {
@@ -24,15 +25,15 @@ const mapDispatchToProps = (): IMapDispatchToProps => {
   }
 }
 
-export type IBlogStoreHOC = {
+export type IHOCProps = {
   myStore: {
     data: any[]
     action: () => void
   }
 }
-export function withBlogStore<BaseProps>(Cmp: React.ComponentClass<BaseProps & IBlogStoreHOC>) {
+export function withSomeStore<BaseProps>(Cmp: React.ComponentClass<BaseProps & IHOCProps>) {
   type HOCRecivedProps = IMapStateToProps & IMapDispatchToProps
-  class BlogStore extends React.Component<HOCRecivedProps> {
+  class SomeStore extends React.Component<HOCRecivedProps> {
     public render() {
       const { someData, myAction, ...props } = this.props
       return (
@@ -44,7 +45,7 @@ export function withBlogStore<BaseProps>(Cmp: React.ComponentClass<BaseProps & I
     IMapStateToProps,
     IMapDispatchToProps,
     BaseProps
-  >(mapStateToProps, mapDispatchToProps)(BlogStore)
+  >(mapStateToProps, mapDispatchToProps)(SomeStore)
 }
 
 ```
