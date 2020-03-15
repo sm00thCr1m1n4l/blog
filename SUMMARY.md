@@ -20,8 +20,6 @@
 * [IOS问题记录](wen-ti-ji-lu/ios-wen-ti-ji-lu.md)
 * [使用npm link调试本地npm包时错误处理](wen-ti-ji-lu/shi-yong-npmlink-tiao-shi-ben-di-npm-bao-shi-cuo-wu-chu-li.md)
 
-## 工程化
-
 ## 其他 <a id="yang-shi"></a>
 
 * [在typescript中使用 redux connect](yang-shi/zai-typescript-zhong-shi-yong-redux-connect.md)
