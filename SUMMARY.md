@@ -9,6 +9,7 @@
 * [响应式原理简单分析](vue/xiang-ying-shi-yuan-li-jian-dan-fen-xi.md)
 * [computed实现分析](vue/computed-shi-xian-fen-xi.md)
 * [Vue组件库搭建](vue/vue-zu-jian-ku-da-jian.md)
+* [后退时关闭页面弹窗](vue/hou-tui-shi-guan-bi-ye-mian-tan-chuang.md)
 
 ## js
 
