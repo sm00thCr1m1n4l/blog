@@ -2,9 +2,7 @@
 
 ```jsx
 import * as React from 'react'
-React.createElement
 import { connect } from 'react-redux'
-import { ThunkDispatch} from 'redux-thunk'
 interface IMapStateToProps {
   someData: any[]
 }
@@ -25,14 +23,14 @@ const mapDispatchToProps = (): IMapDispatchToProps => {
   }
 }
 
-export type IHOCProps = {
+export type WrappedRecivedProps = {
   myStore: {
-    data: any[]
+    data: any[],
     action: () => void
   }
 }
-export function withSomeStore<BaseProps>(Cmp: React.ComponentClass<BaseProps & IHOCProps>) {
-  type HOCRecivedProps = IMapStateToProps & IMapDispatchToProps
+type HOCRecivedProps = IMapStateToProps & IMapDispatchToProps
+export function withSomeStore<BaseProps>(Cmp: React.ComponentClass<BaseProps & WrappedRecivedProps>) {
   class SomeStore extends React.Component<HOCRecivedProps> {
     public render() {
       const { someData, myAction, ...props } = this.props
