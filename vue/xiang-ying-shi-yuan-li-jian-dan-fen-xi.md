@@ -65,7 +65,7 @@ before () {
 }, true /* isRenderWatcher */)
 ```
 
-以上代码片段的**updateComponent**方法中读取了data上的字段（具体实现略过），将**updateComponent**作为参数传入**new Watcher**中实例化一个Watcher，实例化时会调用**Watcher.prototype.get**，这个方法代码片段
+以上代码片段的**updateComponent**方法中会执行render函数，在这其中读取了data上的字段，将**updateComponent**作为参数传入**new Watcher**中实例化一个Watcher，实例化时会调用**Watcher.prototype.get**，这个方法代码片段
 
 ```javascript
 // src\core\observer\watcher.js
